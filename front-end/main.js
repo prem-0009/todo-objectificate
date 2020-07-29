@@ -73,7 +73,7 @@ const displayTodos = function(shouldPrintNumber) {
 }
 
 const add = function(text) {
-  const todo = {'text': text, 'isComplete': false, 'priority': 2}
+  const todo = {'text': text, 'isComplete': false, 'priority': 2,}
   
   // const todo = [text, 'uncomplete'];
   todos.push(todo);
@@ -83,6 +83,7 @@ const add = function(text) {
 }
 
 const remove = function(num) {
+
   todos.splice(num - 1, 1);
   saveTodos();
   displayTodos(false);
@@ -90,10 +91,10 @@ const remove = function(num) {
 }
 
 const complete = function(num) {
-  [['thing1', 'complete'], ['thing2', 'uncomplete']]
+  // [['thing1', 'complete'], ['thing2', 'uncomplete']]
   for (let i = 0; i < todos.length; i++) {
     if (i + 1 === Number(num)) {
-      todos[i][1] = 'complete';
+      todos[i].isComplete = true;
     }
   }
 
@@ -105,7 +106,7 @@ const complete = function(num) {
 const uncomplete = function(num) {
   for (let i = 0; i < todos.length; i++) {
     if (i + 1 === Number(num)) {
-      todos[i][1] = 'uncomplete';
+      todos[i].isComplete = false;
     }
   }
 
